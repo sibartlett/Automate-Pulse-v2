@@ -28,8 +28,10 @@ class AutomateBase(entity.Entity):
 
     @property
     def available(self) -> bool:
-        """Return True if roller and hub is available."""
-        return self.roller.online and self.roller.hub.connected
+        """Return True if hub is available."""
+        return self.roller.hub.connected
+        # roller.online is unreliable
+        # return self.roller.online and self.roller.hub.connected
 
     # pylint: disable=no-self-use
     def include_entity(self) -> bool:
